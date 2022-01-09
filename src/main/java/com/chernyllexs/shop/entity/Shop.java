@@ -1,14 +1,13 @@
 package com.chernyllexs.shop.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "SHOPS")
 public class Shop {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "shop_id")
     private Long shopId;
     private String shopName;
     private String shopDistrict;

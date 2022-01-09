@@ -3,10 +3,11 @@ package com.chernyllexs.shop.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CUSTOMER")
+@Table(name = "CUSTOMERS")
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
     private Long customerId;
     private String customerSurname;
     private String customerDistrict;

@@ -1,28 +1,42 @@
 package com.chernyllexs.shop.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Order {
+@Table(name = "PURCHASES")
+public class Purchases {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long orderId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "purchase_id")
+    private Long purchaseId;
+
+    @CreationTimestamp
     private Date orderDate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "shop_id")
     private Shop orderSeller;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
     private Customer orderCustomer;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "book_id")
     private Book orderBook;
+
     private Integer orderQuantity;
+
     private Float orderAmount;
 
-    protected Order() {
+    protected Purchases() {
     }
 
-    public Order(Long orderId, Date orderDate, Shop orderSeller, Customer orderCustomer, Book orderBook, Integer orderQuantity, Float orderAmount) {
-        this.orderId = orderId;
+    public Purchases(Long purchaseId, Date orderDate, Shop orderSeller, Customer orderCustomer, Book orderBook, Integer orderQuantity, Float orderAmount) {
+        this.purchaseId = purchaseId;
         this.orderDate = orderDate;
         this.orderSeller = orderSeller;
         this.orderCustomer = orderCustomer;
@@ -31,12 +45,12 @@ public class Order {
         this.orderAmount = orderAmount;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Long getPurchaseId() {
+        return purchaseId;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setPurchaseId(Long purchaseId) {
+        this.purchaseId = purchaseId;
     }
 
     public Date getOrderDate() {
@@ -90,7 +104,7 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "orderId=" + orderId +
+                "orderId=" + purchaseId +
                 ", orderDate=" + orderDate +
                 ", orderSeller=" + orderSeller +
                 ", orderCustomer=" + orderCustomer +
