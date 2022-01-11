@@ -20,7 +20,7 @@ public class BookController {
     }
 
     @PatchMapping("/{id}")
-    public void updateBook(@PathVariable Long id){
+    public void updateBook(@PathVariable Long id, @RequestBody Book book){
 
     }
 
