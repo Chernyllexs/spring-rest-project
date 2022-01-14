@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "BOOKS")
-public class Book {
+public class BookEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
@@ -14,10 +14,10 @@ public class Book {
     private String bookWarehouse;
     private Integer bookQuantity;
 
-    protected Book() {
+    protected BookEntity() {
     }
 
-    public Book(Long bookId, String bookName, Float bookPrice, String bookWarehouse, Integer bookQuantity) {
+    public BookEntity(Long bookId, String bookName, Float bookPrice, String bookWarehouse, Integer bookQuantity) {
         this.bookId = bookId;
         this.bookName = bookName;
         this.bookPrice = bookPrice;
@@ -67,7 +67,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "BookEntity{" +
                 "bookId=" + bookId +
                 ", bookName='" + bookName + '\'' +
                 ", bookPrice=" + bookPrice +

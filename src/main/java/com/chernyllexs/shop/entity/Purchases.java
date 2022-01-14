@@ -22,11 +22,11 @@ public class Purchases {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
-    private Customer orderCustomer;
+    private CustomerEntity orderCustomerEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")
-    private Book orderBook;
+    private BookEntity orderBook;
 
     private Integer orderQuantity;
 
@@ -35,11 +35,11 @@ public class Purchases {
     protected Purchases() {
     }
 
-    public Purchases(Long purchaseId, Date orderDate, Shop orderSeller, Customer orderCustomer, Book orderBook, Integer orderQuantity, Float orderAmount) {
+    public Purchases(Long purchaseId, Date orderDate, Shop orderSeller, CustomerEntity orderCustomerEntity, BookEntity orderBook, Integer orderQuantity, Float orderAmount) {
         this.purchaseId = purchaseId;
         this.orderDate = orderDate;
         this.orderSeller = orderSeller;
-        this.orderCustomer = orderCustomer;
+        this.orderCustomerEntity = orderCustomerEntity;
         this.orderBook = orderBook;
         this.orderQuantity = orderQuantity;
         this.orderAmount = orderAmount;
@@ -69,19 +69,19 @@ public class Purchases {
         this.orderSeller = orderSeller;
     }
 
-    public Customer getOrderCustomer() {
-        return orderCustomer;
+    public CustomerEntity getOrderCustomerEntity() {
+        return orderCustomerEntity;
     }
 
-    public void setOrderCustomer(Customer orderCustomer) {
-        this.orderCustomer = orderCustomer;
+    public void setOrderCustomerEntity(CustomerEntity orderCustomerEntity) {
+        this.orderCustomerEntity = orderCustomerEntity;
     }
 
-    public Book getOrderBook() {
+    public BookEntity getOrderBook() {
         return orderBook;
     }
 
-    public void setOrderBook(Book orderBook) {
+    public void setOrderBook(BookEntity orderBook) {
         this.orderBook = orderBook;
     }
 
@@ -107,7 +107,7 @@ public class Purchases {
                 "orderId=" + purchaseId +
                 ", orderDate=" + orderDate +
                 ", orderSeller=" + orderSeller +
-                ", orderCustomer=" + orderCustomer +
+                ", orderCustomer=" + orderCustomerEntity +
                 ", orderBook=" + orderBook +
                 ", orderQuantity=" + orderQuantity +
                 ", orderAmount=" + orderAmount +
