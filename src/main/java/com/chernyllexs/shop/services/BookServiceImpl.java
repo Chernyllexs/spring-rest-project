@@ -5,6 +5,7 @@ import com.chernyllexs.shop.models.Book;
 import com.chernyllexs.shop.repository.BookRepository;
 import com.chernyllexs.shop.utill.exception.BookNotFoundException;
 import com.chernyllexs.shop.utill.mapper.BookMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
 
@@ -13,14 +14,12 @@ import java.util.List;
 
 @Service
 public class BookServiceImpl implements BookService{
+    @Autowired
+    private  BookRepository bookRepository;
+    @Autowired
+    private  BookMapper bookMapper;
 
-    private final BookRepository bookRepository;
-    private final BookMapper bookMapper;
 
-    public BookServiceImpl(BookRepository bookRepository, BookMapper bookMapper) {
-        this.bookRepository = bookRepository;
-        this.bookMapper = bookMapper;
-    }
 
     @Override
     public void deleteBookById(Long id) {
@@ -34,7 +33,7 @@ public class BookServiceImpl implements BookService{
 
     @Override
     public void addBook(Book newBook) {
-        bookRepository.save(newBook);
+        bookRepository.save(bookMapper.bookToBookEntity(newBook));
     }
 
     @Override
