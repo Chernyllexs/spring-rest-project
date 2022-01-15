@@ -6,6 +6,7 @@ import com.chernyllexs.shop.services.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -31,12 +32,12 @@ public class BookController {
     }
 
     @GetMapping
-    public Iterable<BookEntity> getBooks(){
+    public List<Book> getBooks(){
         return bookService.getAllBooks();
     }
 
     @GetMapping("/{id}")
-    public BookEntity getBook(@PathVariable Long id){
+    public Book getBook(@PathVariable Long id){
         return bookService.getBookById(id);
     }
 

@@ -1,11 +1,15 @@
 package com.chernyllexs.shop.models;
 
 public class Book {
-    private final Long bookId;
-    private final String bookName;
-    private final Float bookPrice;
-    private final String bookWarehouse;
-    private final Integer bookQuantity;
+    private  Long bookId;
+    private  String bookName;
+    private  Float bookPrice;
+    private  String bookWarehouse;
+    private  Integer bookQuantity;
+
+
+    public Book() {
+    }
 
     public Book(Long bookId, String bookName, Float bookPrice, String bookWarehouse, Integer bookQuantity) {
         this.bookId = bookId;
