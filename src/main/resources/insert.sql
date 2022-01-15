@@ -1,10 +1,10 @@
-INSERT INTO books (book_name, book_price, book_quantity, book_warehouse) 
+INSERT INTO bookDtos (book_name, book_price, book_quantity, book_warehouse)
 VALUES
 ('Java tutorial', 9.99, 8, 'Sovetckiy'),
 ('SQL tutorial', 8.25, 13, 'Kanavusky'),
 ('Spring Boot', 37.49, 1, 'Sormovo');
 
-SELECT * FROM books
+SELECT * FROM bookDtos
 
 _____________________________________________________________________________
 
