@@ -2,6 +2,7 @@ package com.chernyllexs.shop.services;
 
 import com.chernyllexs.shop.entity.CustomerEntity;
 import com.chernyllexs.shop.models.CustomerDto;
+import com.chernyllexs.shop.models.CustomerNameAndDiscountDto;
 import com.chernyllexs.shop.repository.CustomerRepository;
 import com.chernyllexs.shop.utill.exception.CustomerNotFoundException;
 import com.chernyllexs.shop.utill.mapper.CustomerMapper;
@@ -68,5 +69,23 @@ public class CustomerServiceImpl implements CustomerService {
         customerById.setCustomerDiscount(newCustomerDto.getCustomerDiscount());
         customerById.setCustomerDistrict(newCustomerDto.getCustomerDistrict());
         customerRepository.save(customerMapper.convertToEntity(customerById));
+    }
+
+    @Override
+    public List<String> getDifferentCustomerDistricts() {
+        return customerRepository.getDifferentCustomerDistricts();
+    }
+
+    @Override
+    public List<CustomerNameAndDiscountDto> findCustomersByDistrict(String district) {
+        Iterable<CustomerEntity> iterable = customerRepository.findCustomerEntityByCustomerDistrict(district);
+        ArrayList<CustomerNameAndDiscountDto> customersDto = new ArrayList<>();
+        for (CustomerEntity customerEntity : iterable) {
+            customersDto.add(new CustomerNameAndDiscountDto(
+                    customerEntity.getCustomerSurname(),
+                    customerEntity.getCustomerDiscount()
+            ));
+        }
+        return customersDto;
     }
 }

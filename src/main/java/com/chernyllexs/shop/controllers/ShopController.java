@@ -1,6 +1,7 @@
 package com.chernyllexs.shop.controllers;
 
 import com.chernyllexs.shop.models.ShopDto;
+import com.chernyllexs.shop.models.ShopNameDto;
 import com.chernyllexs.shop.services.ShopServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,5 +43,10 @@ public class ShopController {
     @PutMapping("/{id}")
     public void rewriteShop(@PathVariable Long id, @RequestBody ShopDto shopDto) {
         shopService.rewriteShop(id, shopDto);
+    }
+
+    @GetMapping("/shop-name-in-district")
+    public List<ShopNameDto> getShopNameInDistrict(){
+        return shopService.getShopNameInDistrict();
     }
 }

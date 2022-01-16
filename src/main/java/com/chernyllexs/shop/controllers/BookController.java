@@ -5,9 +5,7 @@ import com.chernyllexs.shop.services.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/book")
@@ -46,8 +44,18 @@ public class BookController {
         bookService.rewriteBook(id, bookDto);
     }
 
-    @GetMapping("/DifferentBookNamesAndPrices")
-    public Map<String, Float> getDifferentBookNamesAndPrices(){
-        return bookService.getDifferentBookNamesAndPrices();
+    @GetMapping("/different-book-names")
+    public List<String> getDifferentBookNames(){
+        return bookService.getDifferentBookNames();
+    }
+
+    @GetMapping("/different-book-prices")
+    public List<Float> getDifferentBookPrices(){
+        return bookService.getDifferentBookPrices();
+    }
+
+    @GetMapping("/book-greater-or-about")
+    public List<BookDto> getBookGreaterOrAbout(){
+        return bookService.getBookGreaterOrAboutWindows();
     }
 }

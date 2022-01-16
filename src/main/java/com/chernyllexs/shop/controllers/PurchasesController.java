@@ -43,4 +43,24 @@ public class PurchasesController {
     public void rewritePurchases(@PathVariable Long id, @RequestBody PurchasesDto purchasesDto) {
         purchasesService.rewritePurchases(id, purchasesDto);
     }
+
+    @GetMapping("/different-order-months")
+    List<String> getDifferentMonths(){
+        return purchasesService.getDifferentMonths();
+    }
+
+    @GetMapping("/surname-and-shop-purchases")
+    List<String> getSurnameAndShop(){
+        return purchasesService.getSurnameAndShop();
+    }
+
+    @GetMapping("/order-details")
+    List<String> getOrderDetails(){
+        return purchasesService.getOrderDetails();
+    }
+
+    @GetMapping("/order-details-A")
+    List<String> getOrderDetailsA(){
+        return purchasesService.getOrderDetailsA();
+    }
 }

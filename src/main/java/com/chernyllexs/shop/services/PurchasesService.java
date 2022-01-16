@@ -16,4 +16,12 @@ public interface PurchasesService {
     PurchasesDto getPurchasesById(Long id);
 
     void rewritePurchases(Long id, PurchasesDto newPurchasesDto);
+
+    List<String> getDifferentMonths();
+
+    List<String> getSurnameAndShop();
+
+    List<String> getOrderDetails();
+
+    List<String> getOrderDetailsA();
 }

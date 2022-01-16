@@ -2,6 +2,7 @@ package com.chernyllexs.shop.services;
 
 import com.chernyllexs.shop.entity.ShopEntity;
 import com.chernyllexs.shop.models.ShopDto;
+import com.chernyllexs.shop.models.ShopNameDto;
 import com.chernyllexs.shop.repository.ShopRepository;
 import com.chernyllexs.shop.utill.exception.ShopNotFoundException;
 import com.chernyllexs.shop.utill.mapper.ShopMapper;
@@ -65,5 +66,15 @@ public class ShopServiceImpl implements ShopService {
         shopById.setShopDiscount(newShopDto.getShopDiscount());
         shopById.setShopDistrict(newShopDto.getShopDistrict());
         shopRepository.save(shopMapper.convertToEntity(shopById));
+    }
+
+    @Override
+    public List<ShopNameDto> getShopNameInDistrict() {
+        Iterable<ShopEntity> iterable = shopRepository.findShopEntityByShopDistrict("Sovetckiy");
+        ArrayList<ShopNameDto> shopNameDtos = new ArrayList<>();
+        for (ShopEntity shopEntity : iterable) {
+            shopNameDtos.add(new ShopNameDto(shopEntity.getShopName()));
+        }
+        return shopNameDtos;
     }
 }

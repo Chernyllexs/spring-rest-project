@@ -55,4 +55,24 @@ public class PurchasesServiceImpl implements PurchasesService {
     public void rewritePurchases(Long id, PurchasesDto newPurchasesDto) {
 
     }
+
+    @Override
+    public List<String> getDifferentMonths() {
+        return purchaseRepository.getDifferentMonths();
+    }
+
+    @Override
+    public List<String> getSurnameAndShop() {
+        return purchaseRepository.getSurnameAndShop();
+    }
+
+    @Override
+    public List<String> getOrderDetails() {
+        return purchaseRepository.getOrderDetails();
+    }
+
+    @Override
+    public List<String> getOrderDetailsA() {
+        return purchaseRepository.getOrderDetailsA();
+    }
 }

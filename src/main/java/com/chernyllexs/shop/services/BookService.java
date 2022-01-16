@@ -4,7 +4,6 @@ import com.chernyllexs.shop.entity.BookEntity;
 import com.chernyllexs.shop.models.BookDto;
 
 import java.util.List;
-import java.util.Map;
 
 public interface BookService {
     void deleteBookById(Long id);
@@ -19,7 +18,9 @@ public interface BookService {
 
     void rewriteBook(Long id, BookDto newBookDto);
 
-    Map<String, Float> getDifferentBookNamesAndPrices();
+    List<String> getDifferentBookNames();
 
+    List<Float> getDifferentBookPrices();
 
+    List<BookDto> getBookGreaterOrAboutWindows();
 }

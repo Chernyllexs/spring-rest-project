@@ -1,6 +1,7 @@
 package com.chernyllexs.shop.controllers;
 
 import com.chernyllexs.shop.models.CustomerDto;
+import com.chernyllexs.shop.models.CustomerNameAndDiscountDto;
 import com.chernyllexs.shop.services.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,6 +43,16 @@ public class CustomerController {
     @PutMapping("/{id}")
     public void rewriteCustomer(@PathVariable Long id, @RequestBody CustomerDto customerDto) {
         customerService.rewriteCustomer(id, customerDto);
+    }
+
+    @GetMapping("/different-customer-districts")
+    List<String> getDifferentCustomerDistricts(){
+        return customerService.getDifferentCustomerDistricts();
+    }
+
+    @GetMapping("/name-and-discount-customers-from-Nizhegorodsky")
+    List<CustomerNameAndDiscountDto> findCustomersByDistrict(){
+        return customerService.findCustomersByDistrict("Nizhegorodsky");
     }
 
 }

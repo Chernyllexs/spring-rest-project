@@ -1,6 +1,7 @@
 package com.chernyllexs.shop.services;
 
 import com.chernyllexs.shop.models.ShopDto;
+import com.chernyllexs.shop.models.ShopNameDto;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface ShopService {
     ShopDto getShopById(Long id);
 
     void rewriteShop(Long id, ShopDto newShopDto);
+
+    List<ShopNameDto> getShopNameInDistrict();
 }

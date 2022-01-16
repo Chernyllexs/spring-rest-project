@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -71,12 +70,22 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Map<String, Float> getDifferentBookNamesAndPrices() {
-        /*Iterable<BookEntity> iterable = bookRepository.getDifferentBookNamesAndPrices();
+    public List<String> getDifferentBookNames() {
+        return bookRepository.getDifferentBookTitles();
+    }
+
+    @Override
+    public List<Float> getDifferentBookPrices() {
+        return bookRepository.getDifferentBookPrices();
+    }
+
+    @Override
+    public List<BookDto> getBookGreaterOrAboutWindows() {
+        Iterable<BookEntity> iterable = bookRepository.getBookEntityByBookNameContainingOrBookPriceGreaterThanOrderByBookName("Windows", 20000F);
         ArrayList<BookDto> booksDto = new ArrayList<>();
         for (BookEntity bookEntity : iterable) {
             booksDto.add(bookMapper.convertToDto(bookEntity));
-        }*/
-        return bookRepository.getDifferentBookNamesAndPrices();
+        }
+        return booksDto;
     }
 }
