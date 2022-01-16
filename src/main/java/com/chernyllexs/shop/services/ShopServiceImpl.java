@@ -6,10 +6,12 @@ import com.chernyllexs.shop.repository.ShopRepository;
 import com.chernyllexs.shop.utill.exception.ShopNotFoundException;
 import com.chernyllexs.shop.utill.mapper.ShopMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ShopServiceImpl implements ShopService {
     @Autowired
     private ShopRepository shopRepository;

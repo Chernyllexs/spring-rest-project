@@ -1,11 +1,11 @@
 package com.chernyllexs.shop.models;
 
 public class BookDto {
-    private  Long bookId;
-    private  String bookName;
-    private  Float bookPrice;
-    private  String bookWarehouse;
-    private  Integer bookQuantity;
+    private Long bookId;
+    private String bookName;
+    private Float bookPrice;
+    private String bookWarehouse;
+    private Integer bookQuantity;
 
 
     public BookDto() {

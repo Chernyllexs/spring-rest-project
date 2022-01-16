@@ -1,8 +1,15 @@
 INSERT INTO books (book_name, book_price, book_quantity, book_warehouse)
 VALUES
-('Java tutorial', 9.99, 8, 'Sovetckiy'),
-('SQL tutorial', 8.25, 13, 'Kanavusky'),
-('Spring Boot', 37.49, 1, 'Sormovo');
+('Java tutorial', 9.99, 8, 'Sovetcky'),
+('Java tutorial', 9.99, 2, 'Prioksky'),
+('Java tutorial', 9.99, 3, 'Leninsky'),
+('Java tutorial', 9.99, 8, 'Kanavinsky'),
+('SQL tutorial', 8.25, 13, 'Kanavinsky'),
+('SQL tutorial', 8.25, 1, 'Leninsky'),
+('Spring Boot', 37.49, 1, 'Sormovsky'),
+('Spring Boot', 37.49, 2, 'Prioksky'),
+('Spring Boot', 37.49, 13, 'Kanavinsky'),
+('Spring Boot', 37.49, 7, 'Sovetcky');
 
 
 
@@ -23,7 +30,7 @@ VALUES
 
 INSERT INTO purchases (customer_id, shop_id, book_id, order_quantity, order_amount, order_date)
 VALUES
-(1, 3, 2, 2, 20, '2022-01-08 04:05:06'),
+(1, 3, 2, 2, 20, '2022-01-08'),
 (2, 2, 3, 1, 30, '2021-11-13'),
 (1, 1, 1, 1, 45, '2021-10-15'),
 (2, 2, 2, 2, 28, '2021-12-31'),

@@ -1,8 +1,6 @@
 package com.chernyllexs.shop.utill.mapper;
 
-import com.chernyllexs.shop.entity.CustomerEntity;
 import com.chernyllexs.shop.entity.PurchasesEntity;
-import com.chernyllexs.shop.models.CustomerDto;
 import com.chernyllexs.shop.models.PurchasesDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

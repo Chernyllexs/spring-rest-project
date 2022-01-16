@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -67,5 +68,15 @@ public class BookServiceImpl implements BookService {
         bookById.setBookQuantity(newBookDto.getBookQuantity());
         bookById.setBookWarehouse(newBookDto.getBookWarehouse());
         bookRepository.save(bookMapper.convertToEntity(bookById));
+    }
+
+    @Override
+    public Map<String, Float> getDifferentBookNamesAndPrices() {
+        /*Iterable<BookEntity> iterable = bookRepository.getDifferentBookNamesAndPrices();
+        ArrayList<BookDto> booksDto = new ArrayList<>();
+        for (BookEntity bookEntity : iterable) {
+            booksDto.add(bookMapper.convertToDto(bookEntity));
+        }*/
+        return bookRepository.getDifferentBookNamesAndPrices();
     }
 }

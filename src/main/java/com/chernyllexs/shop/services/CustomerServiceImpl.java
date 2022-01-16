@@ -1,19 +1,18 @@
 package com.chernyllexs.shop.services;
 
-import com.chernyllexs.shop.entity.BookEntity;
 import com.chernyllexs.shop.entity.CustomerEntity;
-import com.chernyllexs.shop.models.BookDto;
 import com.chernyllexs.shop.models.CustomerDto;
 import com.chernyllexs.shop.repository.CustomerRepository;
-import com.chernyllexs.shop.utill.exception.BookNotFoundException;
 import com.chernyllexs.shop.utill.exception.CustomerNotFoundException;
 import com.chernyllexs.shop.utill.mapper.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerServiceImpl implements CustomerService{
+@Service
+public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
