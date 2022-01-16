@@ -24,4 +24,10 @@ public interface PurchasesService {
     List<String> getOrderDetails();
 
     List<String> getOrderDetailsA();
+
+    List<String> getOrderDetailsB();
+
+    List<String> getOrderDetailsC();
+
+    List<String> getOrderDetailsD();
 }

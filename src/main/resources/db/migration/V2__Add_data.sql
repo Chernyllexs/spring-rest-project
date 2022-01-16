@@ -1,13 +1,13 @@
 INSERT INTO books (book_name, book_price, book_quantity, book_warehouse)
 VALUES
 ('Java tutorial', 369.99, 8, 'Sovetcky'),
-('Java tutorial', 369.99, 2, 'Prioksky'),
-('Java tutorial', 369.99, 3, 'Leninsky'),
+('Java tutorial', 369.99, 12, 'Prioksky'),
+('Java tutorial', 369.99, 23, 'Leninsky'),
 ('Java tutorial', 369.99, 8, 'Kanavinsky'),
 ('SQL tutorial', 856.25, 13, 'Kanavinsky'),
-('SQL tutorial', 856.25, 1, 'Leninsky'),
+('SQL tutorial', 856.25, 12, 'Leninsky'),
 ('Spring Boot', 937.49, 1, 'Sormovsky'),
-('Spring Boot', 937.49, 2, 'Prioksky'),
+('Spring Boot', 937.49, 22, 'Prioksky'),
 ('Windows for grandma', 1500, 2, 'Prioksky'),
 ('Spring Boot', 1038.49, 13, 'Kanavinsky'),
 ('THE BIBLE', 99999.99, 13, 'Kanavinsky'),

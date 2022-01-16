@@ -45,22 +45,37 @@ public class PurchasesController {
     }
 
     @GetMapping("/different-order-months")
-    List<String> getDifferentMonths(){
+    List<String> getDifferentMonths() {
         return purchasesService.getDifferentMonths();
     }
 
     @GetMapping("/surname-and-shop-purchases")
-    List<String> getSurnameAndShop(){
+    List<String> getSurnameAndShop() {
         return purchasesService.getSurnameAndShop();
     }
 
     @GetMapping("/order-details")
-    List<String> getOrderDetails(){
+    List<String> getOrderDetails() {
         return purchasesService.getOrderDetails();
     }
 
     @GetMapping("/order-details-A")
-    List<String> getOrderDetailsA(){
+    List<String> getOrderDetailsA() {
         return purchasesService.getOrderDetailsA();
+    }
+
+    @GetMapping("/order-details-B")
+    List<String> getOrderDetailsB() {
+        return purchasesService.getOrderDetailsB();
+    }
+
+    @GetMapping("/order-details-C")
+    List<String> getOrderDetailsC() {
+        return purchasesService.getOrderDetailsC();
+    }
+
+    @GetMapping("/order-details-D")
+    List<String> getOrderDetailsD() {
+        return purchasesService.getOrderDetailsD();
     }
 }

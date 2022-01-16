@@ -27,7 +27,20 @@ public class PurchasesServiceImpl implements PurchasesService {
 
     @Override
     public void updatePurchasesById(Long id, PurchasesDto updatedPurchasesDto) {
-
+        PurchasesDto purchasesById = getPurchasesById(id);
+        if (updatedPurchasesDto.getOrderAmount() != null)
+            purchasesById.setOrderAmount(updatedPurchasesDto.getOrderAmount());
+        if (updatedPurchasesDto.getOrderBook() != null)
+            purchasesById.setOrderBook(updatedPurchasesDto.getOrderBook());
+        if (updatedPurchasesDto.getOrderBook() != null)
+            purchasesById.setOrderCustomerEntity(updatedPurchasesDto.getOrderCustomerEntity());
+        if (updatedPurchasesDto.getOrderCustomerEntity() != null)
+            purchasesById.setPurchaseId(updatedPurchasesDto.getPurchaseId());
+        if (updatedPurchasesDto.getPurchaseId() != null)
+            purchasesById.setOrderSeller(updatedPurchasesDto.getOrderSeller());
+        if (updatedPurchasesDto.getOrderSeller() != null)
+            purchasesById.setOrderDate(updatedPurchasesDto.getOrderDate());
+        purchaseRepository.save(purchasesMapper.convertToEntity(purchasesById));
     }
 
     @Override
@@ -53,7 +66,14 @@ public class PurchasesServiceImpl implements PurchasesService {
 
     @Override
     public void rewritePurchases(Long id, PurchasesDto newPurchasesDto) {
-
+        PurchasesDto purchasesById = getPurchasesById(id);
+        purchasesById.setOrderAmount(newPurchasesDto.getOrderAmount());
+        purchasesById.setOrderBook(newPurchasesDto.getOrderBook());
+        purchasesById.setOrderCustomerEntity(newPurchasesDto.getOrderCustomerEntity());
+        purchasesById.setPurchaseId(newPurchasesDto.getPurchaseId());
+        purchasesById.setOrderSeller(newPurchasesDto.getOrderSeller());
+        purchasesById.setOrderDate(newPurchasesDto.getOrderDate());
+        purchaseRepository.save(purchasesMapper.convertToEntity(purchasesById));
     }
 
     @Override
@@ -74,5 +94,20 @@ public class PurchasesServiceImpl implements PurchasesService {
     @Override
     public List<String> getOrderDetailsA() {
         return purchaseRepository.getOrderDetailsA();
+    }
+
+    @Override
+    public List<String> getOrderDetailsB() {
+        return purchaseRepository.getOrderDetailsB();
+    }
+
+    @Override
+    public List<String> getOrderDetailsC() {
+        return purchaseRepository.getOrderDetailsC();
+    }
+
+    @Override
+    public List<String> getOrderDetailsD() {
+        return purchaseRepository.getOrderDetailsD();
     }
 }
