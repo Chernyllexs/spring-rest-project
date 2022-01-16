@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "PURCHASES")
-public class Purchases {
+public class PurchasesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "purchase_id")
@@ -16,15 +16,15 @@ public class Purchases {
     @CreationTimestamp
     private Date orderDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "shop_id")
-    private Shop orderSeller;
+    private ShopEntity orderSeller;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
     private CustomerEntity orderCustomerEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "book_id")
     private BookEntity orderBook;
 
@@ -32,10 +32,10 @@ public class Purchases {
 
     private Float orderAmount;
 
-    protected Purchases() {
+    protected PurchasesEntity() {
     }
 
-    public Purchases(Long purchaseId, Date orderDate, Shop orderSeller, CustomerEntity orderCustomerEntity, BookEntity orderBook, Integer orderQuantity, Float orderAmount) {
+    public PurchasesEntity(Long purchaseId, Date orderDate, ShopEntity orderSeller, CustomerEntity orderCustomerEntity, BookEntity orderBook, Integer orderQuantity, Float orderAmount) {
         this.purchaseId = purchaseId;
         this.orderDate = orderDate;
         this.orderSeller = orderSeller;
@@ -61,11 +61,11 @@ public class Purchases {
         this.orderDate = orderDate;
     }
 
-    public Shop getOrderSeller() {
+    public ShopEntity getOrderSeller() {
         return orderSeller;
     }
 
-    public void setOrderSeller(Shop orderSeller) {
+    public void setOrderSeller(ShopEntity orderSeller) {
         this.orderSeller = orderSeller;
     }
 

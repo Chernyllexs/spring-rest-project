@@ -1,14 +1,26 @@
 package com.chernyllexs.shop.services;
 
-import com.chernyllexs.shop.models.Book;
+import com.chernyllexs.shop.entity.BookEntity;
+import com.chernyllexs.shop.models.BookDto;
 
 import java.util.List;
 
 public interface BookService {
     void deleteBookById(Long id);
-    void updateBookById(Long id, Book updatedBook);
-    void addBook(Book newBook);
-    List<Book> getAllBooks();
-    Book getBookById(Long id);
-    void rewriteBook(Long id, Book newBook);
+
+    void updateBookById(Long id, BookDto updatedBookDto);
+
+    void addBook(BookDto newBookDto);
+
+    List<BookDto> getAllBooks();
+
+    BookDto getBookById(Long id);
+
+    void rewriteBook(Long id, BookDto newBookDto);
+
+    List<String> getDifferentBookNames();
+
+    List<Float> getDifferentBookPrices();
+
+    List<BookDto> getBookGreaterOrAboutWindows();
 }

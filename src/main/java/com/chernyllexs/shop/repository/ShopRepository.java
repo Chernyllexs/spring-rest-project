@@ -1,7 +1,11 @@
 package com.chernyllexs.shop.repository;
 
-import com.chernyllexs.shop.entity.Shop;
+import com.chernyllexs.shop.entity.ShopEntity;
 import org.springframework.data.repository.CrudRepository;
 
-public interface ShopRepository extends CrudRepository<Shop, Long> {
+import java.util.List;
+
+public interface ShopRepository extends CrudRepository<ShopEntity, Long> {
+
+    List<ShopEntity> findShopEntityByShopDistrict(String district);
 }
